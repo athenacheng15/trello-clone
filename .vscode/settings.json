@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "diffEditor.experimental.showEmptyDecorations": true,
+    "prettier.tabWidth": 4
+}
