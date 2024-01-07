@@ -8,7 +8,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Board{
-    id String @id @default(uuid())
-    title String
+model Board {
+  id            String @id @default(uuid())
+  orgId         String
+  title         String
+  imageId       String
+  imageThunbUrl String @db.Text
+  imageFullUrl  String @db.Text
+  imageUserName String @db.Text
+  imageLinkHTML String @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
