@@ -1,9 +1,23 @@
 import { User2, HelpCircle } from 'lucide-react';
+import { auth } from '@clerk/nextjs';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
+import { db } from '@/lib/db';
 import { Hint } from '@/components/hint';
 import { FormPopover } from '@/components/form/form-popover';
+import { Skeleton } from '@/components/ui/skeleton';
 
-export const BoardList = () => {
+export const BoardList = async () => {
+    const { orgId } = auth();
+
+    if (!orgId) return redirect('/select-org');
+
+    const boards = await db.board.findMany({
+        where: { orgId },
+        orderBy: { createdAt: 'desc' },
+    });
+
     return (
         <div className="space-y-4">
             <div className="flex items-center text-lg font-semibold text-neutral-700">
@@ -11,6 +25,21 @@ export const BoardList = () => {
                 Your Boards
             </div>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                {boards.map(board => (
+                    <Link
+                        key={board.id}
+                        href={`/board/${board.id}`}
+                        className="group relative aspect-video h-full w-full overflow-hidden rounded-sm bg-sky-700 bg-cover bg-center bg-no-repeat p-2"
+                        style={{
+                            backgroundImage: `url(${board.imageThunbUrl})`,
+                        }}
+                    >
+                        <div className="absolute inset-0 bg-black/30 transition group-hover:bg-black/40" />
+                        <p className="relative font-semibold text-white">
+                            {board.title}
+                        </p>
+                    </Link>
+                ))}
                 <FormPopover sideOffset={10} side="right">
                     <div
                         role="button"
@@ -27,6 +56,21 @@ export const BoardList = () => {
                     </div>
                 </FormPopover>
             </div>
+        </div>
+    );
+};
+
+BoardList.Skeleton = function SkeletonBoardList() {
+    return (
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <Skeleton className="aspect-video h-full w-full p-2" />
+            <Skeleton className="aspect-video h-full w-full p-2" />
+            <Skeleton className="aspect-video h-full w-full p-2" />
+            <Skeleton className="aspect-video h-full w-full p-2" />
+            <Skeleton className="aspect-video h-full w-full p-2" />
+            <Skeleton className="aspect-video h-full w-full p-2" />
+            <Skeleton className="aspect-video h-full w-full p-2" />
+            <Skeleton className="aspect-video h-full w-full p-2" />
         </div>
     );
 };
