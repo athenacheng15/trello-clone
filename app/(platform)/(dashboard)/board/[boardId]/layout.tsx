@@ -3,6 +3,8 @@ import { notFound, redirect } from 'next/navigation';
 
 import { db } from '@/lib/db';
 
+import { BoardNavbar } from './_component/board-navbar';
+
 export async function generateMetadata({
     params,
 }: {
@@ -37,6 +39,8 @@ const BoardIdLayout = async ({
             className="relative h-full bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${board.imageFullUrl})` }}
         >
+            <BoardNavbar data={board} />
+            <div className="absolute inset-0 bg-black/20" />
             <main className="relative h-full pt-28">{children}</main>
         </div>
     );
