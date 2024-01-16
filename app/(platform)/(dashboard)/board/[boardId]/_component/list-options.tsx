@@ -2,6 +2,7 @@
 
 import type { ElementRef } from 'react';
 
+import { toast } from 'sonner';
 import { useRef } from 'react';
 import { MoreHorizontal, X } from 'lucide-react';
 import { List } from '@prisma/client';
@@ -17,7 +18,7 @@ import { FormSubmit } from '@/components/form/form-submit';
 import { Separator } from '@/components/ui/separator';
 import { useAction } from '@/hooks/use-action';
 import { deleteList } from '@/actions/delete-list';
-import { toast } from 'sonner';
+import { copyList } from '@/actions/copy-list';
 
 interface ListOptionsProps {
     data: List;
@@ -28,7 +29,17 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
 
     const { execute: executeDelete } = useAction(deleteList, {
         onSuccess: data => {
-            toast.success(`List "${data.title}" delete`);
+            toast.success(`List "${data.title}" deleted`);
+            closeRef.current?.click();
+        },
+        onError: error => {
+            toast.error(error);
+        },
+    });
+
+    const { execute: executeCopy } = useAction(copyList, {
+        onSuccess: data => {
+            toast.success(`List "${data.title}" copied`);
             closeRef.current?.click();
         },
         onError: error => {
@@ -41,6 +52,13 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
         const boardId = formData.get('boardId') as string;
 
         executeDelete({ id, boardId });
+    };
+
+    const onCopy = (formData: FormData) => {
+        const id = formData.get('id') as string;
+        const boardId = formData.get('boardId') as string;
+
+        executeCopy({ id, boardId });
     };
 
     return (
@@ -73,7 +91,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
                 >
                     Add Cards
                 </Button>
-                <form>
+                <form action={onCopy}>
                     <input hidden name="id" id="id" value={data.id} />
                     <input
                         hidden
