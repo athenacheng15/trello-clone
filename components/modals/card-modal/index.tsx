@@ -6,6 +6,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { useCardModal } from '@/hooks/use-card-modal';
 import { CardWithList } from '@/types';
 import { fetcher } from '@/lib/fetcher';
+import { Header } from './header';
 
 export const CardModal = () => {
     const id = useCardModal(state => state.id);
@@ -19,7 +20,9 @@ export const CardModal = () => {
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent>{cardData?.title}</DialogContent>
+            <DialogContent>
+                {cardData ? <Header data={cardData} /> : <Header.Skeleton />}
+            </DialogContent>
         </Dialog>
     );
 };
