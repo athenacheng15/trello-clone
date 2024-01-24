@@ -57,7 +57,7 @@ export const Header = ({ data }: HeaderProps) => {
                     <FormInput
                         ref={inputRef}
                         onBlur={onBlur}
-                        id="tite"
+                        id="title"
                         defaultValue={title}
                         className="relative -left-1.5 mb-0.5 w-[95%] truncate border-transparent bg-transparent px-1 text-xl font-semibold text-neutral-700 focus-visible:border-input focus-visible:bg-white"
                     />
