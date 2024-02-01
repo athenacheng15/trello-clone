@@ -12,6 +12,7 @@ import { useCardModal } from '@/hooks/use-card-modal';
 import { Header } from './header';
 import { Description } from './description';
 import { Actions } from './actions';
+import { Activity } from './activity';
 
 export const CardModal = () => {
     const id = useCardModal(state => state.id);
@@ -39,6 +40,11 @@ export const CardModal = () => {
                                 <Description data={cardData} />
                             ) : (
                                 <Description.Skeleton />
+                            )}
+                            {auditLogData ? (
+                                <Activity items={auditLogData} />
+                            ) : (
+                                <Activity.Skeleton />
                             )}
                         </div>
                     </div>
