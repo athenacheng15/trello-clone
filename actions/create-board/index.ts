@@ -1,10 +1,15 @@
 'use server';
 
+import type { InputeType, ReturnType } from './types';
+
 import { auth } from '@clerk/nextjs';
-import { InputeType, ReturnType } from './types';
-import { db } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
+
+import { db } from '@/lib/db';
 import { createSafeAction } from '@/lib/create-safe-atcion';
+import { createAuditLog } from '@/lib/create-audit-log';
+
 import { CreateBoard } from './schema';
 
 const handler = async (data: InputeType): Promise<ReturnType> => {
@@ -43,6 +48,12 @@ const handler = async (data: InputeType): Promise<ReturnType> => {
                 imageUserName,
                 imageLinkHTML,
             },
+        });
+        await createAuditLog({
+            entityId: board.id,
+            entityTitle: board.title,
+            entityType: ENTITY_TYPE.BOARD,
+            action: ACTION.CREATE,
         });
     } catch (error) {
         return { error: 'Failed to create' };

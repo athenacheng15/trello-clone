@@ -1,13 +1,16 @@
 'use server';
 
+import type { InputeType, ReturnType } from './types';
+
 import { revalidatePath } from 'next/cache';
 import { auth } from '@clerk/nextjs';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 
 import { db } from '@/lib/db';
 import { createSafeAction } from '@/lib/create-safe-atcion';
+import { createAuditLog } from '@/lib/create-audit-log';
 
 import { CopyCard } from './schema';
-import { InputeType, ReturnType } from './types';
 
 const handler = async (data: InputeType): Promise<ReturnType> => {
     const { userId, orgId } = auth();
@@ -53,6 +56,13 @@ const handler = async (data: InputeType): Promise<ReturnType> => {
                 order: newOrder,
                 listId: cardToCopy.listId,
             },
+        });
+
+        await createAuditLog({
+            entityId: card.id,
+            entityTitle: card.title,
+            entityType: ENTITY_TYPE.CARD,
+            action: ACTION.CREATE,
         });
     } catch (error) {
         return { error: 'Failed to copy.' };
