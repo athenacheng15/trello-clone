@@ -1,10 +1,15 @@
 'use server';
 
+import type { InputeType, ReturnType } from './types';
+
 import { auth } from '@clerk/nextjs';
-import { InputeType, ReturnType } from './types';
-import { db } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
+
+import { db } from '@/lib/db';
 import { createSafeAction } from '@/lib/create-safe-atcion';
+import { createAuditLog } from '@/lib/create-audit-log';
+
 import { UpdateCard } from './schema';
 
 const handler = async (data: InputeType): Promise<ReturnType> => {
@@ -33,6 +38,12 @@ const handler = async (data: InputeType): Promise<ReturnType> => {
             data: {
                 ...values,
             },
+        });
+        await createAuditLog({
+            entityId: card.id,
+            entityTitle: card.title,
+            entityType: ENTITY_TYPE.CARD,
+            action: ACTION.UPDATE,
         });
     } catch (error) {
         return { error: 'Failed to update.' };
