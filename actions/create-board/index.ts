@@ -12,6 +12,7 @@ import { createAuditLog } from '@/lib/create-audit-log';
 import { incrementAvailableCount, hasAvailableCount } from '@/lib/org-limit';
 
 import { CreateBoard } from './schema';
+import { checkSubscription } from '@/lib/subscription';
 
 const handler = async (data: InputeType): Promise<ReturnType> => {
     const { userId, orgId } = auth();
@@ -23,8 +24,9 @@ const handler = async (data: InputeType): Promise<ReturnType> => {
     }
 
     const canCreate = await hasAvailableCount();
+    const isPro = await checkSubscription();
 
-    if (!canCreate) {
+    if (!canCreate && !isPro) {
         return {
             error: 'You have reached ypur limit of free  boards. Please upgrade to create more.',
         };
@@ -58,7 +60,9 @@ const handler = async (data: InputeType): Promise<ReturnType> => {
                 imageLinkHTML,
             },
         });
-        await incrementAvailableCount();
+        if (!isPro) {
+            await incrementAvailableCount();
+        }
         await createAuditLog({
             entityId: board.id,
             entityTitle: board.title,
