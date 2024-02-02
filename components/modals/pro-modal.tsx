@@ -55,7 +55,9 @@ export const ProModal = () => {
                         onClick={onClick}
                         className=" w-full"
                         variant="primary"
-                    ></Button>
+                    >
+                        Subscribe
+                    </Button>
                 </div>
             </DialogContent>
         </Dialog>
