@@ -37,6 +37,7 @@
 
 ## 📖 Libraries
 * Clerk : Simplify user authentication and identity management with customizable features.
+* Planetscale : MySQL-compatible database.
 * Shadcn : Enhance UI development with a collection of reusable components for improved code reusability.
 * Stripe : Securely accept and manage payments online with this robust payment processing platform.
 * Sonner : An opinionated toast component for React.
