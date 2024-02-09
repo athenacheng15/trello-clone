@@ -18,7 +18,17 @@
 </div>
 <hr>
 
- ## 🖥 Tech Stack 
+ ## 💡 Key Features
+* Landing page
+* Auth for Organizational and Personal Workspace Usage Rights.
+* Fetching Unsplash image API for random beautiful cover images.
+* CRUD Operations for Boards, Lists, and Cards.
+* Activity log for Card and entire organization
+* rename, drag & drop reorder and copy functions of List and Card
+* Board limit for every organization
+* Stripe subscription for each organization to unlock unlimited boards
+
+ ## 🖥  Tech Stack 
 ![nextjs logo](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white&style=for-the-badge)
   ![typescript logo](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
   ![tailwindcss logo](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=black&style=for-the-badge)
