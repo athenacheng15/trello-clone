@@ -28,12 +28,22 @@
 * Board limit for every organization
 * Stripe subscription for each organization to unlock unlimited boards
 
- ## 🖥  Tech Stack 
+ ## 🛠 Tech Stack 
 ![nextjs logo](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white&style=for-the-badge)
   ![typescript logo](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
   ![tailwindcss logo](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=black&style=for-the-badge)
   ![prisma logo](https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white&style=for-the-badge)
   ![mysql logo](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white&style=for-the-badge)
+
+## 📖 Libraries
+* Clerk : Simplify user authentication and identity management with customizable features.
+* Shadcn : Enhance UI development with a collection of reusable components for improved code reusability.
+* Stripe : Securely accept and manage payments online with this robust payment processing platform.
+* Sonner : An opinionated toast component for React.
+* Tanstack react query : Streamline data fetching, caching, and updates in React applications for efficient state management.
+* Unsplash : Get the largest free collection of high-quality images using the Image api.
+* Zod : Ensure data integrity and type safety with TypeScript-first schema declaration and validation.
+* Zustand : Simplify global state management in React applications with a minimalistic API.
 
 ## 🔮 Contributing
 
