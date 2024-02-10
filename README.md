@@ -9,7 +9,7 @@
     This is a full-stack project exercise using NEXT.JS as the framework<br> refer to the video of code with Antonio
     <br/>
     <br/>
-    <a href="trello-clone-beryl-nine.vercel.app">View Demo</a>
+    <a href="https://trello-clone-beryl-nine.vercel.app/">View Demo</a>
     .
     <a href="https://github.com/athenacheng15/trello-clone/issues">Report Bug</a>
     .
@@ -47,15 +47,34 @@
 
 ## 🔮 Contributing
 
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/athenacheng15/airbnb-clone/issues/new) to discuss it, or directly create a pull request after you edit the file with necessary changes.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/athenacheng15/trello-clone/issues/new) to discuss it, or directly create a pull request after you edit the file with necessary changes.
 * Please make sure you check your spelling and grammar.
-* Create individual PR for each suggestion.
+* This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-### Getting Started
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Setup .env file:
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 
-run the development server:
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
+DATABASE_URL=
+NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=
+
+STRIPE_API_KEY=
+NEXT_PUBLUC_APP_URL=http://localhost:3000
+STRIPE_WEBHOOK_SECRET=
+```
+
+### Install packages:
+```bash
+npm i
+```
+
+### Run the development server:
 ```bash
 npm run dev
 ```
