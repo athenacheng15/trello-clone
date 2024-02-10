@@ -36,19 +36,18 @@
   ![mysql logo](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white&style=for-the-badge)
 
 ## 📖 Libraries
-* Clerk : Simplify user authentication and identity management with customizable features.
-* Planetscale : MySQL-compatible database.
-* Shadcn : Enhance UI development with a collection of reusable components for improved code reusability.
-* Stripe : Securely accept and manage payments online with this robust payment processing platform.
-* Sonner : An opinionated toast component for React.
-* Tanstack react query : Streamline data fetching, caching, and updates in React applications for efficient state management.
-* Unsplash : Get the largest free collection of high-quality images using the Image api.
-* Zod : Ensure data integrity and type safety with TypeScript-first schema declaration and validation.
-* Zustand : Simplify global state management in React applications with a minimalistic API.
+* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdVEuXbieiDLdzyT-lHa1wtFVPK2ONT5utgQ&usqp=CAU" alt="Clerk" width="14"/>  **Clerk** : Simplify user authentication and identity management with customizable features.
+* <img src="https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/iidhf24ewhnqtjgrrfbp" alt="Planetscale" width="14"/>  **Planetscale** : MySQL-compatible database.
+* <img src="https://avatars.githubusercontent.com/u/139895814?s=280&v=4" alt="Shadcn" width="14"/>  **Shadcn** : Enhance UI development with a collection of reusable components for improved code reusability.
+* <img src="https://b.stripecdn.com/site-statics-srv/assets/assets/img/v3/home/twitter-80afaafee00af0bc21d345164a2a9bb6.png" alt="Stripe" width="14"/>  **Stripe** : Securely accept and manage payments online with this robust payment processing platform.
+* <img src="https://avatars.githubusercontent.com/u/72518640?s=200&v=4" alt="Tanstack" width="14"/>  **Tanstack react query** : Streamline data fetching, caching, and updates in React applications for efficient state management.
+* <img src="https://uploads-ssl.webflow.com/5b0c471ddb589cf22d4477a4/5cd716028463a5a1d1b1e73d_unsplash-app-icon-2.png" alt="Unsplash" width="14"/>  **Unsplash** : Get the largest free collection of high-quality images using the Image api.
+* <img src="https://seeklogo.com/images/Z/zod-logo-B57E684330-seeklogo.com.png" alt="Zod" width="14"/>  **Zod** : Ensure data integrity and type safety with TypeScript-first schema declaration and validation.
+* <img src="https://img.stackshare.io/service/11559/zustand.png" alt="Zustand" width="14"/>  **Zustand** : Simplify global state management in React applications with a minimalistic API.
 
 ## 🔮 Contributing
 
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/athenacheng15/airbnb-clone/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/athenacheng15/airbnb-clone/issues/new) to discuss it, or directly create a pull request after you edit the file with necessary changes.
 * Please make sure you check your spelling and grammar.
 * Create individual PR for each suggestion.
 
